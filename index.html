@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Letter for Ma'am Roan</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+
+h1 {
+    color: #5486c5;
+    font-size: 30px;
+    margin: 30px 0 12px;
+}
+
+.intro {
+    color: #718096;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
+
+
+.heart-button {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    cursor: pointer;
+    margin: 35px auto;
+    animation: heartbeat 1.3s infinite;
+    transition: 0.4s;
+}
+
+.heart-button::before,
+.heart-button::after {
+    content: "";
+    position: absolute;
+    width: 55px;
+    height: 88px;
+    background: #78a9e8;
+    border-radius: 55px 55px 0 0;
+}
+
+.heart-button::before {
+    left: 55px;
+    top: 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart-button::after {
+    left: 0;
+    top: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+.heart-button:hover {
+    animation: none;
+    transform: scale(1.15);
+}
+
+.heart-button:active {
+    transform: scale(0.85);
+}
+
+
+.heart-button span {
+    position: absolute;
+    z-index: 2;
+    top: 42px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.12);
+    }
+
+    40% {
+        transform: scale(1);
+    }
+
+    60% {
+        transform: scale(1.08);
+    }
+}
+
+
+#opener {
+    transition: opacity 0.6s, transform 0.6s;
+}
+
+#opener.opening {
+    opacity: 0;
+    transform: scale(1.5);
+    pointer-events: none;
+}
+
+
+.card {
+    display: none;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px #5486c522;
+    text-align: left;
+    border: 1px solid #dbeafe;
+}
+
+.card.show {
+    display: block;
+    animation: letterOpen 1s ease forwards;
+}
+
+@keyframes letterOpen {
+    0% {
+        opacity: 0;
+        transform: translateY(60px) scale(0.85);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateY(-8px) scale(1.02);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+.heart {
+    text-align: center;
+    color: #78a9e8;
+    font-size: 32px;
+    animation: heartbeat 1.5s infinite;
+    margin-bottom: 15px;
+}
+
+.card h2 {
+    color: #5486c5;
+    margin-bottom: 20px;
+    font-size: 23px;
+}
+
+.card p {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.9;
+    margin-bottom: 16px;
+    text-align: justify;
+}
+
+.footer {
+    text-align: center !important;
+    color: #5486c5 !important;
+    font-weight: bold;
+    background: #eff6ff;
+    padding: 18px;
+    border-radius: 12px;
+    margin-top: 25px;
+}
+
+
+.back {
+    margin-top: 22px;
+    background: transparent;
+    color: #5486c5;
+    border: 1px solid #91b9e8;
+    box-shadow: none;
+}
+
+.back:hover {
+    background: #eaf3ff;
+    color: #5486c5;
+    box-shadow: none;
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 25px 20px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    .card p {
+        font-size: 14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+
+    <div id="opener">
+
+        <h1>A LETTER FOR YOU!</h1>
+
+        <p class="intro">
+            Dear Ma'am Roan, i have something to say to you
+            <br>
+            Tap the HEART to open.
+        </p>
+
+        <button class="heart-button" onclick="openMessage()">
+            <span>CLICK HERE!</span>
+        </button>
+
+    </div>
+
+
+    <div class="card" id="messageCard">
+
+        <div class="heart">♥</div>
+
+        <h2>Dear Ma’am Roan,</h2>
+
+        <p>
+            I would like to express my sincere gratitude for being such a dedicated and inspiring professor.
+            I have learned many things from you, not only about technology and programming 
+            but also about patience, critical thinking, and problem-solving.
+            There were times when lessons were challenging, especially when dealing with codes and technical activities,
+            but your guidance and dedication helped me understand them better.
+            Thank you for always giving your best to teach and for sharing your knowledge with us.
+        </p>
+
+        <p>
+            I have gained valuable knowledge and experiences that I know I can use in my future journey.
+            You taught me that learning is not always about getting the correct answer immediately, but also about understanding mistakes, 
+            finding solutions, and never giving up. I appreciate how you encourage your students to improve, explore new ideas, and believe in their own abilities.
+        </p>
+
+        <p>
+            I truly appreciate everything you have done for us. 
+            May you continue to inspire and guide more students.
+        </p>
+
+        <p class="footer">
+            Thank you so much, Ma'am Roan!<br>
+            God bless you always! 💙
+        </p>
+
+        <div class="heart">♥</div>
+
+        <center>
+            <button class="back" onclick="closeMessage()">
+                Return
+            </button>
+        </center>
+
+    </div>
+
+</div>
+
+<script>
+
+function openMessage() {
+
+    const opener = document.getElementById("opener");
+    const card = document.getElementById("messageCard");
+
+    opener.classList.add("opening");
+
+    setTimeout(function() {
+        opener.style.display = "none";
+        card.classList.add("show");
+    }, 600);
+
+}
+
+function closeMessage() {
+
+    const opener = document.getElementById("opener");
+    const card = document.getElementById("messageCard");
+
+    card.classList.remove("show");
+
+    opener.style.display = "block";
+    opener.classList.remove("opening");
+
+}
+
+</script>
+
+</body>
+</html>
